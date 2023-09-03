@@ -4,7 +4,6 @@
 int inputArray(int n, int *array);
 void outputArray(int n, int *array);
 void merjeSort(int firstElement, int lastElement, int *array);
-void swap(int i, int j, int *array);
 void filingNewArray (int newN, int ptr1, int ptr2, int lastElement1, int lastElement2, int* array, int *newArray);
 void copySortedArray(int firstElement, int lastElement, int* array, int * newArray); 
  
@@ -43,10 +42,7 @@ void outputArray(int n, int *array) {
 
 void merjeSort(int firstElement, int lastElement, int *array) {
 
-    if (lastElement - firstElement <= 1) {
-        if (array[firstElement] > array[lastElement]) {
-            swap(firstElement, lastElement, array);
-        }
+    if (lastElement - firstElement < 1) {
         return;
     }
 
@@ -66,12 +62,6 @@ void merjeSort(int firstElement, int lastElement, int *array) {
     copySortedArray(firstElement, lastElement, array, newArray);
     
     free(newArray);
-}
-
-void swap(int i, int j, int *array) {
-    int temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
 }
 
 void filingNewArray (int newN, int ptr1, int ptr2, int lastElement1, int lastElement2, int* array, int *newArray) {
