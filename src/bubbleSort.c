@@ -4,7 +4,7 @@
 int inputArray(int n, int *array);
 void outputArray(int n, int *array);
 void bubbleSort(int n, int *array);
-void swap(int i, int j, int *array);
+void swap(int *i, int *j);
 
 int main() {
     int n;            // Количество элементов массива
@@ -44,14 +44,14 @@ void bubbleSort(int n, int *array) {
         for (int j = 0; j < n - i - 1; j++) {
             if (array[j] > array[j + 1]) {
                 // Если текущий элемент больше следующего, меняем их местами
-                swap(j, j + 1, array);
+                swap(array + j, array + j + 1);
             }
         }
     }
 }
 
-void swap(int i, int j, int *array) {
-    int temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+void swap(int *i, int *j) {
+    int temp = *i;
+    *i = *j;
+    *j = temp;
 }
