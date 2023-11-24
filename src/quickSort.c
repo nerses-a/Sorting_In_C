@@ -56,9 +56,11 @@ void swap(int *i, int *j) {
 }
 
 void quickSort(int firstElement, int lastElement, int *array) {
+
     if (firstElement >= lastElement) {
         return;
     }
+
     int ptr1 = firstElement;
     int ptr2 = lastElement;
     int pivot = array[(firstElement + lastElement) / 2];
@@ -77,4 +79,5 @@ void quickSort(int firstElement, int lastElement, int *array) {
 
     quickSort(firstElement, ptr2, array);
     quickSort(ptr1, lastElement, array);
+
 }
